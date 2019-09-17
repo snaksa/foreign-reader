@@ -3,12 +3,14 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Home from './screens/Home';
 import Search from './screens/Search';
+import BookDetails from './screens/BookDetails';
 
 const MainNavigator = createStackNavigator({
   Home: {screen: Home},
   Search: {screen: Search},
+  BookDetails: {screen: BookDetails},
 }, {
-  initialRouteName: 'Home'
+  initialRouteName: 'BookDetails'
 });
 
 const App = createAppContainer(MainNavigator);

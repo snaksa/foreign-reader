@@ -10,7 +10,7 @@ const MainNavigator = createStackNavigator({
   Search: {screen: Search},
   BookDetails: {screen: BookDetails},
 }, {
-  initialRouteName: 'BookDetails'
+  initialRouteName: 'Home'
 });
 
 const App = createAppContainer(MainNavigator);

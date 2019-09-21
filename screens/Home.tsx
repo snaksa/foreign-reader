@@ -25,6 +25,7 @@ const Home = ({navigation}) => {
             return (
               <View style={styles.bookCard}>
                 <BookCard
+                  navigation={navigation}
                   title={item.title}
                   image={item.image}
                   author={item.author}

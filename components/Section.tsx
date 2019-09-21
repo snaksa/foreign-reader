@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
     width: "95%",
     borderRadius: 5,
     padding: 5,
-    alignSelf: "center"
+    alignSelf: "center",
+    borderWidth: 2,
+    borderColor: '#f4511e'
   },
   title: {
+    color: '#f4511e',
     fontSize: 18,
     fontWeight: "bold",
     marginLeft: 5,

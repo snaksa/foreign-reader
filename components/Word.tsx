@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   word: {
+    color: '#f4511e',
     textAlignVertical: "center",
     fontWeight: "bold"
   },

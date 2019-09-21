@@ -1,7 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions, FlatList } from 'react-native';
+import Section from '../components/Section';
+import Word from '../components/Word';
+import {WordModel} from '../models/models';
+import data from '../data/data';
 
-const BookDetails = ({title, author, image, description}) => {
+const BookDetails = () => {
+  const title = "The Long Walk";
+  const author = 'Stephen King';
+  const image = "https://images-na.ssl-images-amazon.com/images/I/71m0GnD2ZGL.jpg";
+  const description = "No summary.";
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.backgound}></View>
@@ -17,9 +26,27 @@ const BookDetails = ({title, author, image, description}) => {
         <Text style={styles.title}>{title}</Text> 
         <Text style={styles.author}>{author}</Text>
       </View>
-      <View style={styles.info}>
+      <Section title="Sumamry">
         <Text style={styles.description}>{description}</Text> 
-      </View>
+      </Section>
+
+      <Section title="Recent Words">
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item: WordModel) => item.id.toString()}
+          data={data.words}
+          renderItem={({item}) => {
+            return (
+              <View>
+                <Word
+                  word={item.word}
+                  description={item.description}
+                />
+              </View>
+            )
+          }}
+        />
+      </Section>
     </ScrollView>
   );
 }
@@ -37,8 +64,6 @@ BookDetails.navigationOptions = ({navigation}) => ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderColor: "red",
-    borderWidth: 1,
     width: "100%",
     backgroundColor: '#d4d0e1',
   },
@@ -72,10 +97,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderWidth: 2,
     borderColor: '#f4511e',
-    width: '90%',
+    borderRadius: 5,
+    width: '95%',
     alignSelf: "center",
     flexDirection: 'column',
-    marginBottom: 10,
   },
   title: {
     padding: 10,
@@ -93,7 +118,7 @@ const styles = StyleSheet.create({
   },
   description: {
     textAlign: "justify",
-    padding: 10,
+    padding: 5,
   }
 });
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
 import data from '../data/data';
 import Section from './../components/Section';
 import BookCard from './../components/BookCard';
@@ -76,6 +77,14 @@ Home.navigationOptions = ({navigation}) => ({
   headerTintColor: '#fff',
   headerTitleStyle: {
   },
-})
+});
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
